@@ -5,7 +5,7 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class VerificationCodeService {
-    public String verificationCode(String PassagerPhone) {
+    public String generateCode(String PassagerPhone) {
 
         //调用验证码服务
         System.out.println("调用验证码服务,获取验证码");
@@ -16,8 +16,8 @@ public class VerificationCodeService {
 
         //返回值
         JSONObject jsonObject = new JSONObject();
-        jsonObject.put("code",1);
-        jsonObject.put("message","success");
+        jsonObject.put("code", 1);
+        jsonObject.put("message", "success");
         return jsonObject.toString();
     }
 }
