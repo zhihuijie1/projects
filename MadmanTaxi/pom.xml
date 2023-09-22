@@ -48,7 +48,25 @@
             <version>1.18.24</version>
             <scope>provided</scope>
         </dependency>
-
     </dependencies>
+
+    <dependencyManagement><!--集中管理项目中所有依赖项的版本信息-->
+        <dependencies>
+            <dependency>
+                <groupId>com.alibaba.cloud</groupId><!--依赖项的所属公司或组织-->
+                <artifactId>spring-cloud-alibaba-dependencies</artifactId><!--依赖项的具体公司-->
+                <version>2021.1</version><!--依赖项的版本号-->
+                <type>pom</type><!--依赖项的类型,pom：导入其他依赖项的版本信息-->
+                <scope>import</scope><!--scope:依赖项在那个阶段使用,import:通常与 <type> 为 pom 一起使用，它用于导入其他项目的依赖版本信息-->
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>2020.0.1</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
 
 </project>

@@ -9,14 +9,14 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class NumberCodeController {
     @GetMapping("/numberCode{size}")
-    public ResponseResult numberCode(@PathVariable("size") int size) {//@pathvariable:从网址中摘取指定信息到springboot程序中
-
+    public ResponseResult numberCode(@PathVariable("size") int size) {
+        //@pathvariable:从网址中摘取指定信息到springboot程序中
         System.out.println("size -> " + size);
         //生成验证码
         //[0,1) - [0,10)
         double mathRandom = Math.random() * 9 + 1;
         int verificationCode = (int) (mathRandom * Math.pow(10, size - 1));
-        System.out.println("我的验证码是" + verificationCode);
+        System.out.println("生成过程中的验证码是" + verificationCode);
         //设置验证码
         NumberCodeResponse numberCodeResponse = new NumberCodeResponse();
         numberCodeResponse.setNumbercode(verificationCode);
